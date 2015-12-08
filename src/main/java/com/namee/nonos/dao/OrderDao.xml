@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.namee.nonos.dao.OrderDao">    
+	<resultMap type="com.namee.nonos.domain.Order" id="orderResultMap">
+		<result property="orderId" column="orderId"/>
+		<result property="companyName" column="companyName"/>
+		<result property="orderPerson" column="orderPerson"/>
+		<result property="factory" column="factory"/>
+		<result property="purchasePrice" column="purchasePrice"/>
+		<result property="supplyPrice" column="supplyPrice"/>
+		<result property="item" column="item"/>
+		<result property="amount" column="amount"/>
+		<result property="memo" column="memo"/>
+		<result property="deleteYN" column="deleteYN"/>
+		<result property="user" column="user"/>
+	</resultMap>	
+	<select id="selectOrderList" resultMap="orderResultMap">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				ORDER
+		]]>
+	</select>
+
+</mapper>
