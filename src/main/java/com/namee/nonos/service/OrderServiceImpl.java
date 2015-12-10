@@ -24,19 +24,25 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.selectOrderList();
 	}
 
-	public Order getOrderOne(int boardId) {
+	public Order getOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return null;
+		return orderDao.selectOrder(orderId);
 	}
 
 	public int writeOrder(Order order) {
 		// TODO Auto-generated method stub
-		return 0;
+		return orderDao.insertOrder(order);
 	}
 
 	public int modifyOrder(Order order) {
 		// TODO Auto-generated method stub
-		return 0;
+		return orderDao.updateOrder(order);
+	}
+
+	@Override
+	public int deleteOrder(int orderId) {
+		// TODO Auto-generated method stub
+		return orderDao.deleteOrder(orderId);
 	}
 
 }

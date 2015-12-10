@@ -26,22 +26,22 @@ public class OrderDaoImpl implements OrderDao {
 
 	public Order selectOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("selectOrder", orderId);
 	}
 
 	public int insertOrder(Order order) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("insertOrder", order);
 	}
 
 	public int updateOrder(Order order) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("updateOrder", order);
 	}
 
-	public Order deleteOrder(int order) {
+	public int deleteOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.update("deleteOrder", orderId);
 	}
 
 }

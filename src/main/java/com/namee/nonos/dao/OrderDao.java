@@ -11,5 +11,5 @@ public interface OrderDao {
 	public Order selectOrder(int orderId);
 	public int insertOrder(Order order);
 	public int updateOrder(Order order);
-	public Order deleteOrder(int order);
+	public int deleteOrder(int orderId);
 }

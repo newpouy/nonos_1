@@ -7,7 +7,8 @@ import com.namee.nonos.domain.Order;
 
 public interface OrderService {
 	public List<Map<String, Object>> getOrderList();
-	public Order getOrderOne(int boardId);
+	public Order getOrder(int orderId);
 	public int writeOrder(Order order);
 	public int modifyOrder(Order order);
+	public int deleteOrder(int orderId);
 }

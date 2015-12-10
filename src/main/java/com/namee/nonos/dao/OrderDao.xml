@@ -15,13 +15,61 @@
 		<result property="deleteYN" column="deleteYN"/>
 		<result property="user" column="user"/>
 	</resultMap>	
+	
 	<select id="selectOrderList" resultMap="orderResultMap">
 		<![CDATA[
 			SELECT
 				*
 			FROM
-				ORDER
+				`ORDER`
+			WHERE
+				deleteYN = 'N'
 		]]>
 	</select>
-
+	
+	<select id="selectOrder" parameterType="int" resultMap="orderResultMap">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				`ORDER`
+			WHERE 
+				orderId = #{orderId}
+		]]>	
+	</select>
+		
+	<insert id="insertOrder" parameterType="com.namee.nonos.domain.Order">
+		<![CDATA[
+			INSERT INTO `ORDER`(companyName,orderPerson,factory,purchasePrice,supplyPrice,item,amount,memo,deleteYN,user)
+			VALUES(#{companyName},#{orderPerson},#{factory},#{purchasePrice},#{supplyPrice},#{item},#{amount},#{memo},'N',#{user})
+		]]>
+	</insert>
+	
+	<update id="updateOrder" parameterType="com.namee.nonos.domain.Order">
+	<![CDATA[
+		UPDATE `ORDER`
+		SET
+			companyName = #{companyName},
+			orderPerson = #{orderPerson},
+			factory = #{factory},
+			purchasePrice = #{purchasePrice},
+			supplyPrice = #{supplyPrice},
+			item = #{item},
+			amount = #{amount},
+			memo = #{memo},
+			user = #{user}
+		WHERE
+			orderId = #{orderId}
+	]]>		
+	</update>
+	
+	<update id="deleteOrder" parameterType="int">
+	<![CDATA[
+		UPDATE `ORDER`
+		SET
+			deleteYN = 'Y'
+		WHERE
+			orderId = #{orderId}
+	]]>		
+	</update>
 </mapper>
